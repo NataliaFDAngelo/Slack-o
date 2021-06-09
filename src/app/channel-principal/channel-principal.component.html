@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-3 list-channels">
+        <h4>Channels</h4>
+        <label class="text-center">Filter By:</label>
+        <div class="col-10 filter">
+            <input [(ngModel)]="filter" class="form-control">
+        </div>
+        <ul class="list-group list-group-item-action list-group-flush" *ngFor="let channelsNames of filtreredChannel">
+            <li>{{channelsNames.channelName | unique}}</li>
+        </ul>
+    </div>
+    <section class="col-9 message">
+        <div *ngFor="let messages of filtreredChannel">
+            <h5>{{ messages.nickname }}</h5>
+            <p>{{ messages.message }}</p>
+            <hr>
+        </div>
+    </section>
+</div>
+<div class="row">
+    <form class="col-3 input-form">
+        <div class="form-group">
+            <div class="form-group">
+                <label for="channel">Channel:</label>
+                <input type="channel" class="form-control" id="channel">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+                <label for="nickName">Nickname:</label>
+                <input type="nickname" class="form-control" id="nickName">
+            </div>
+        </div>
+    </form>
+    <form class="col-8">
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea class="form-control" id="message" rows="5"></textarea>
+        </div>
+    </form>
+    <div class="col btn-send">
+        <button type="button" class="btn btn-success">
+            <span>Send</span>
+            <br>
+            <i class="far fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
