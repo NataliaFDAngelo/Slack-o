@@ -10,12 +10,20 @@ import { ChannelService } from './channel.service';
 
 export class ChannelPrincipalComponent implements OnInit {
 
+  
+
   filtreredChannel : Channel[] = [];
 
   _channels: Channel[] = [];
 
   _filterBy: string = '';
 
+  inputChannel: string = '';
+
+  inputName: string = '';
+
+  inputMessage: string = '';
+  
   constructor(private channelService : ChannelService){ }
 
   ngOnInit(): void {
@@ -32,6 +40,10 @@ export class ChannelPrincipalComponent implements OnInit {
 
   get filter() {
     return this._filterBy;
+  }
+
+  saveMessage() {
+    alert('Salvando: \n' + 'Channel: ' +  this.inputChannel + ' \n Nickname: ' + this.inputName  + ' \n Message: ' + this.inputMessage);
   }
 
 }
